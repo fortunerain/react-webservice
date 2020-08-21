@@ -5,6 +5,7 @@ import Subject from "./components/Subject";
 import Toc from "./components/Toc";
 import Control from "./components/Control";
 import CreateContent from "./components/CreateContent";
+import UpdateContent from "./components/UpdateContent";
 
 class App extends Component {
   constructor(props) {
@@ -54,6 +55,18 @@ class App extends Component {
 
 
       }.bind(this)}></CreateContent>
+
+    } else if (this.state.mode === 'update') {
+      _article = <UpdateContent onSubmit={function (_title, _desc) {
+        console.log(_title, _desc)
+        this.max_content_id++;
+        let _contents = this.state.contents.concat({id: this.max_content_id, title: _title, desc: _desc});
+        this.setState({
+          contents: _contents
+        })
+
+
+      }.bind(this)}></UpdateContent>
 
     }
     return (
