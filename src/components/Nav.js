@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 class Nav extends Component {
     render() {
+        console.log('Nav render!!')
         var lists = [];
         var data = this.props.data;
         var i = 0;
